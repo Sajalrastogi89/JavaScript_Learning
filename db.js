@@ -41,7 +41,7 @@ async function addUser(user) {
     const store = transaction.objectStore("Users");
 
     const request = store.add(user);
-    request.onsuccess = () => alert("User added successfully");
+    request.onsuccess = () => showSuccessToast("User added successfully");
     request.onerror = (event) => {
       console.error("Error adding user", event.target.error);
       alert("Unable to add");
@@ -276,6 +276,35 @@ async function getAllUsersByEmailPrefix(callback, prefix) {
   });
 }
 
+
+async function getAllBlogsForEmail(email){
+  return new Promise((resolve,reject)=>{
+    // if (!db.objectStoreNames.contains("Users")) {
+    //   reject("Users object store not found!");
+    //   return;
+    // }
+    if(!db.objectStoreNames.contains("Users")){
+      reject("User object store not found");
+      return;
+    }
+    const transaction=db.transaction("Users","readonly");
+    const store = transaction.objectStore("Users");
+    const index = store.index("email");
+
+    const request = index.get(email);
+    request.onsuccess = () => {
+      const user = request.result;
+
+      if (!user) {
+        reject("User not found!");
+        return;
+      }
+      resolve(user);
+    };
+
+    request.onerror = () => reject("Error retrieving user!");
+  })
+}
 
 
 // **Example Usage**

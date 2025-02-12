@@ -17,19 +17,19 @@ document.getElementById("signup-form")?.addEventListener("submit", async functio
 
     // Validate phone number (must be 10 digits)
     if (!/^\d{10}$/.test(entry.Phone)) {
-      alert("Phone number must be exactly 10 digits.");
+      showFailedToast("Phone number must be exactly 10 digits.");
       return;
     }
 
     // Validate password length
     if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(entry.password)) {
-      alert("Password must be at least 8 characters long.");
+      showFailedToast("Password must be at least 8 characters long, atleast 1 special character, number, capital letter, small letter.");
       return;
     }
 
     // Validate password match
     if (entry.password !== entry.confirmPassword) {
-      alert("Password is not matching");
+      showFailedToast("Password is not matching");
       return;
     }
 
@@ -39,7 +39,7 @@ document.getElementById("signup-form")?.addEventListener("submit", async functio
     sessionStorage.setItem("email", entry.email);
     document.getElementById("signup-form").reset();
   } catch (e) {
-    alert(e);
+    showFailedToast(e);
   }
 });
 
@@ -74,7 +74,7 @@ document.getElementById("signup-form")?.addEventListener("submit", async functio
         window.location.href = "dashboard.html";
         sessionStorage.setItem("email", details.email);
       } catch (e) {
-        alert(e);
+        showFailedToast(e);
       }
     });
 
@@ -94,13 +94,13 @@ document.getElementById("blog-submit")?.addEventListener("submit",async function
       console.log(24);
       showSuccessToast("Blog added successfully!");
     } catch (error) {
-      alert(error);
+      showFailedToast(error);
     }
     finally{
       document.getElementById("blog-submit").reset();
     }
   } else {
-    alert("Please fill in all fields!");
+    showFailedToast("Please fill in all fields!");
   }
 })
 
@@ -212,6 +212,21 @@ function showSuccessToast(message) {
   }).showToast();
 }
 
+function showFailedToast(message) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top",
+    position: "center",
+    style: {
+      background: "linear-gradient(to right,rgb(175, 76, 76),rgb(255, 0, 0))",  // Custom background
+      color: "#fff",  // Text color
+      borderRadius: "8px",
+      padding: "10px 20px",
+    }
+  }).showToast();
+}
+
 function showData(emails) {
   console.log("efg");
   const container = document.getElementById("emailResults");
@@ -225,16 +240,36 @@ function showData(emails) {
   // }
 
   // Create list items for each email
+  
   const ul = document.createElement("ul");
   emails.forEach(email => {
     const li = document.createElement("li");
-    li.textContent = email;
+    li.innerHTML = `<a href="#" onclick="handleClick('${email}')">${email}</a>`;
     ul.appendChild(li);
   });
 
   container.appendChild(ul);
 }
 
+async function handleClick(email){
+  console.log("q");
+  let user=await getAllBlogsForEmail(email);
+  console.log(user);
+  if(user.blogs==null){
+    return;
+  }
+  const container=document.getElementById("blogs-container");
+  container.innerHTML="";
+  const userBlock = document.createElement("div");
+      userBlock.classList.add("user-block");
+      userBlock.innerHTML = `
+          <h3>${user.firstName} ${user.lastName} (${user.email})</h3>
+          <div class="blogs-list">
+              ${user.blogs.map(blog => `<p><h3>${blog.title}:</h3> ${blog.content}</p>`).join("")}
+          </div>
+      `;
+      container.appendChild(userBlock);
+}
 
 
 function search(data){
@@ -261,3 +296,31 @@ document.getElementById("emailSearcher")?.addEventListener("input",function(even
   console.log(data);
   hitApi(()=>{search(data)},data,300);
 })
+
+function throttle(callback,limit){
+  let flag=true;
+  return function(...args){
+    if(flag){
+      callback.apply(this,args);
+      flag=false;
+      setTimeout(()=>{
+        flag=true;
+      },limit)
+    }
+  }
+}
+
+
+function getUpdatedDimension(){
+  const dimension=document.getElementById("dimensions");
+  dimension.textContent=`Width: ${window.innerWidth}px | Height: ${window.innerHeight}px`;
+}
+
+
+if (window.location.pathname.includes("dashboard.html")) {
+  window.addEventListener("resize", throttle(getUpdatedDimension, 300));
+  window.addEventListener("load", getUpdatedDimension);
+  window.addEventListener("load", getAllSubmittedBlogs);
+}
+
+
