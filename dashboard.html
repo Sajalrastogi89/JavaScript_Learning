@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <!-- <header> -->
+      <!-- search writer: <input type="text"></header> -->
+    <a id="logOut" href="login.html">Log Out</a></button>
+    <div class="new-blog">
+      <h2>Add a New Blog</h2>
+      <form id="blog-submit">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Blog Title"
+          required
+        />
+        <textarea
+          name="blog"
+          id="blog"
+          placeholder="Write your blog here..."
+          required
+        ></textarea>
+        <div class="submit-button">
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="all-blogs">
+      <div class="header">
+        <h2>All Blogs</h2>
+        <div class="searching">
+          <input id="emailSearcher" type="text" placeholder="Search Blog By Email">
+          <div id="emailResults" class="autocomplete-results"></div>
+        </div>
+        
+        <button id="refresh" class="btn">Refresh</button>
+      </div>
+      <div id="blogs-container"></div>
+    </div>
+    <!-- Toastify CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<!-- Toastify JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="index.js"></script>
+    <script src="db.js"></script>
+  </body>
+</html>

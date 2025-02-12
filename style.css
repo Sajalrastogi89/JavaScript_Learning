@@ -1,0 +1,232 @@
+*{
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+body{
+  background: linear-gradient(to top right,  
+        #FFF5E1, /* Very Light Peach */  
+        #FFD9C0, /* Light Salmon */  
+        #FDE6DC, /* Soft Coral */  
+        #FFEBF0, /* Light Pink */  
+        #EDE0F8, /* Softer Thistle */  
+        #D9C9E8, /* Light Lavender */  
+        #DFF4FA, /* Softer Light Blue */  
+        #BFEFFF  /* Light Sky Blue */
+    );
+  overflow: hidden;
+}
+
+.main{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  /* gap: 100px; */
+  /* max-width: 90%; */
+  /* border: 2px solid black; */ 
+}
+
+.signup{
+  background: linear-gradient(to top right, 
+        #FFE5B4, /* Light Peach */
+        #FFA07A, /* Soft Salmon */
+        #f7beaa, /* Coral */
+        #FFB6C1, /* Light Pink */
+        #D8BFD8, /* Thistle (Pastel Purple) */
+        #B39EB5, /* Soft Lavender */
+        #ADD8E6, /* Light Blue */
+        #87CEFA  /* Sky Blue */
+    );
+  height: 85%;
+  width: 30%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 20px;
+  padding: 10px;
+  transform: translateZ(30px);
+  margin-right: 100px;
+}
+
+#logo img{
+  height: 40px;
+  width:auto;
+}
+/* .chef{
+  width: 30%;
+} */
+.upper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#logo-text{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.heading{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table{
+  display: flex;
+  border: #000000;
+  border-width: 2px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border-collapse: separate; */
+  border-spacing: 0 16px;
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 10px;
+}
+
+tbody{
+  width: 80%;
+}
+
+tr{
+  width: 100%;
+}
+
+td{
+  width: 100%;
+}
+
+
+
+#signup-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2px; */
+  width: 100%;
+  height: 100%;
+}
+
+/* .submit-button{
+  margin-top: 2px;
+  margin-bottom: 10px;
+} */
+
+.submit-button button{
+  padding: 1vh;
+  width: 8vw;
+  border-width: 1px;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  transform: translateZ(10px);
+  /* background: linear-gradient(to bottom, #4CAF50, #2E8B57); Green gradient */
+  /* color: white; */
+  font-size: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px #000000; /* Bottom shadow for depth */
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+  
+}
+
+.submit-button{
+  margin-top: 11px;
+}
+
+.submit-button button:active {
+  box-shadow: 0 0.5px #000000; /* Reduce shadow when pressed */
+  transform: translateY(0.5px); /* Move down slightly */
+}
+.mid {
+  margin-top: 8px;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  height: 68%
+}
+.form-table {
+  width: 100%; 
+  height: 100%;
+  margin-bottom: 12px;
+}
+
+input{
+  padding: 8px 15px;
+  border-radius: 8px;
+  border-width: 1px;
+  font-style: italic;
+  font-size: 12px;
+  width: 90%;
+  /* background-color: #000000; */
+}
+
+
+
+.fblock{
+  width: 30%;
+}
+
+.name{
+  width: 72%;
+}
+
+/* table, th, td {
+  border: 2px solid black;
+} */
+
+/* #last{
+  margin-left: 30px;
+} */
+
+#lastName{
+  margin-left: 12px;
+}
+
+.login{
+  background: linear-gradient(to top right, 
+        #FFE5B4, /* Light Peach */
+        #FFA07A, /* Soft Salmon */
+        #f7beaa, /* Coral */
+        #FFB6C1, /* Light Pink */
+        #D8BFD8, /* Thistle (Pastel Purple) */
+        #B39EB5, /* Soft Lavender */
+        #ADD8E6, /* Light Blue */
+        #87CEFA  /* Sky Blue */
+    );
+  height: 50%;
+  width: 20%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 20px;
+  padding: 10px;
+  transform: translateZ(30px);
+  margin-right: 100px;
+}
+header{
+  display: flex;
+  justify-content: end;
+  /* padding: 20px; */
+}
+
+#link{
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+#login-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2px; */
+  width: 100%;
+  height: 100%;
+}

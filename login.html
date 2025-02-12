@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+  
+</head>
+<body>
+  <header>
+    <a id="link" href="signup.html">Sign up</a>
+  </header>
+  <section class="main">
+    <div class="chef"><img src="img/chef.png" alt=""></div>
+    <div class="login">
+      <div class="upper">
+        <div class="heading">
+          <div id="logo"><img src="img/posist.png" alt="Posist logo"></div>
+          <div id="logo-text">POSIST</div>
+        </div>
+        <div class="signup-text">
+          Log in to continue
+        </div>
+        <div class="heading"></div>
+      </div>
+      <div class="mid">
+      <form id="login-form">
+        <table class="form-table">
+          <tr>
+            <td colspan="2"><input id="email" type="email" placeholder="Email" required></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input id="password" type="password" placeholder="Password" required></td>
+          </tr>
+          
+        </table>
+        <div class="submit-button">
+          <button type="submit">Log in</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </section>
+  <script src="db.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

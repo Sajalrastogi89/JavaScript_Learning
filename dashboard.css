@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-blog {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.new-blog input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#blog {
+  height: 100px; /* Increased height */
+  width: 83%;
+  resize: none;
+}
+
+.btn{
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+  font-size: 12px;
+}
+
+.btn:hover{
+  background: #0056b3;
+}
+
+.all-blogs {
+  width: 80vw;
+  /* max-width: 500px; */
+  margin-top: 20px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.user-block {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 40%;
+  height: 80%;
+  margin-left: 45px;
+  margin-bottom: 45px;
+}
+
+.blogs-list {
+  max-height: 200px;
+  overflow-y: auto; /* Enables scrolling */
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#blogs-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* .box{
+  width: 40%;
+} */
+/* 
+.blogs-list{
+  width: 40%;
+} */
+
+/* #emailSearcher{
+  width: 20%;
+  height: 30px;
+} */
+
+/* .autocomplete-results {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+  background: red;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000; 
+  display: none;  */
+
+/* .autocomplete-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.autocomplete-results li {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.autocomplete-results li:hover {
+  background: #f0f0f0;
+} */
+
+.searching{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
