@@ -8,13 +8,15 @@
   <script src="app/lib/angular.min.js"></script>
   <script src="app\app.js"></script>
 </head>
-<body ng-init="favMeal='red'; ninjas=['Ninja Hattory','Kasama','Takeshi']">
-  <input type="text" placeholder="Enter text" ng-model="favMeal">
-  <p class="{{favMeal}}">Text: Fav Meal {{favMeal}}
-    <ul class="{{favMeal}}">
-      <li ng-repeat="ninja in ninjas">{{ninja}}</li>
-    </ul>
-  </p>
-  
+<body>
+  <header ng-include="'header.html'"></header>
+ <div ng-controller="NinjaController">
+  <input type="text" ng-model="myFav">
+  <input type="text" ng-model="search" placeholder="search">
+  <p class="{{myFav}}">Hello World {{search}} </p>
+  <ul class="{{myFav}}">
+    <li class="{{myFav}}" ng-repeat="ninja in ninjas | orderBy:'-fName' | filter:{fName:search}" ng-show="{{!ninja.available}}">{{ninja.fName}}-{{ninja.rate | currency}}<hr></li>
+  </ul>
+ </div>
 </body>
 </html>
