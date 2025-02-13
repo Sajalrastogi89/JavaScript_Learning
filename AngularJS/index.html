@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myNinjaApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app/lib/angular.min.js"></script>
+  <script src="app\app.js"></script>
+</head>
+<body ng-init="favMeal='red'; ninjas=['Ninja Hattory','Kasama','Takeshi']">
+  <input type="text" placeholder="Enter text" ng-model="favMeal">
+  <p class="{{favMeal}}">Text: Fav Meal {{favMeal}}
+    <ul class="{{favMeal}}">
+      <li ng-repeat="ninja in ninjas">{{ninja}}</li>
+    </ul>
+  </p>
+  
+</body>
+</html>
